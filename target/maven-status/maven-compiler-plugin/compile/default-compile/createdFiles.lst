@@ -1,0 +1,4 @@
+com\stocktracker\service\impl\StockTrackerServiceImpl.class
+com\stocktracker\service\StockTrackerService.class
+com\stocktracker\controller\StockTrackerController.class
+com\stocktracker\model\StockTrackerModel.class
