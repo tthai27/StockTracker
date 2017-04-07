@@ -102,7 +102,9 @@ function addWatchList(){
 		return;
 	}
 	var shares = $("#sharesId").val();
-	
+	if(isNaN(shares) || shares == ""){
+		shares = 0;
+	}
 	$.ajax({
 		url: "StockTracker/addWatchList.do",
 		type: "POST",

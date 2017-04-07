@@ -53,7 +53,11 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 	@Override
 	public List<StockTrackerModel> addWatchListService(List<StockTrackerModel> watchList, String symbol,int shares) {
 		// TODO Auto-generated method stub
-		
+		for(int i=0;i<watchList.size();i++){
+			if (symbol.equalsIgnoreCase(watchList.get(i).getSymbol())){
+				return watchList;
+			}
+		}
 		
 		StockTrackerModel model = getSymbolInfoService(symbol);
 		model.setSharesOwned(shares);
