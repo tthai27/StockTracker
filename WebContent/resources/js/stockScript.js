@@ -95,8 +95,12 @@ function removeSymbol(symbol){
 }
 
 function addWatchList(){
+	$("#tickerErrorMsg").hide();
 	var symbol = $("#searchSymbolId").val();
-	
+	if(symbol == ''){
+		$("#tickerErrorMsg").show();
+		return;
+	}
 	var shares = $("#sharesId").val();
 	
 	$.ajax({

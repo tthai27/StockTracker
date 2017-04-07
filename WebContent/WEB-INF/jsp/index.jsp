@@ -53,6 +53,7 @@
 						<button class="btn btn-default" type="button" onclick="getSymbolInfo()"><span class="glyphicon glyphicon-search"></span></button>
 					</span>
 				</div>
+				<span id="tickerErrorMsg" style="color:red;display:none">Please enter a ticker</span>
 			</div>
 		</div>
 	</div>
