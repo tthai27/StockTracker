@@ -12,7 +12,7 @@ function getWatchList(){
 //				console.log(value.symbol);
 //				console.log(value.lastTradePrice);
 			
-				
+				//
 				
 				var companyName = value.companyName
 				var symbol = value.symbol;
