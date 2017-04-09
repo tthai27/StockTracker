@@ -36,7 +36,7 @@ public class StockTrackerController {
 		return new ModelAndView("home");
 	}
 	
-	@RequestMapping(value="/getSymbolInfo.do", method={RequestMethod.POST})
+	@RequestMapping(value="/getSymbolInfo.do", method={RequestMethod.GET})
 	@ResponseBody
 	public  String getSymbolInfo(@RequestParam(value = "symbol") String symbol) {
 		System.out.println("getSymbolInfo " + symbol);
@@ -59,6 +59,7 @@ public class StockTrackerController {
 			watchList = stockTrackerService.getWatchListService(request,watchList);
 		}
 		Gson gson = new Gson();
+//		gson.fromJson("", StockTrackerModel.class);
 		String json = gson.toJson(watchList);
 		return json;
 	}

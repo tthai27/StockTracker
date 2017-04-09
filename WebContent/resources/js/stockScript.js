@@ -56,7 +56,7 @@ function getSymbolInfo(){
 	}
 	$.ajax({
 		url: "StockTracker/getSymbolInfo.do",
-		type: "POST",
+		type: "GET",
 		dataType: 'json',
 		data: {
 			"symbol" : symbol.toUpperCase()
@@ -85,7 +85,7 @@ function removeSymbol(symbol){
 			"symbol" : symbol.toUpperCase()
 		},
 		success: function(data){
-			alert("removed "+symbol);
+			alert("Removed "+symbol +" from watchlist.");
 		},
 		error: function(){
 			
