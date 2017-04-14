@@ -12,15 +12,18 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stocktracker.mappers.StockTrackerMapper;
 import com.stocktracker.model.StockTrackerModel;
 import com.stocktracker.service.StockTrackerService;
 
 @Service
 public class StockTrackerServiceImpl implements StockTrackerService{
 	
-	
+//	@Autowired
+//	StockTrackerMapper stockTrackerMapper;
 
 	@Override
 	public List<StockTrackerModel> getWatchListService(HttpServletRequest request, List<StockTrackerModel> watchList) {
@@ -35,6 +38,8 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 			watchList.get(i).setSymbol(stockInfo.getSymbol().toUpperCase());
 			watchList.get(i).setCompanyName(stockInfo.getCompanyName());
 			watchList.get(i).setLastTradePrice(lastTradePrice);
+			watchList.get(i).setChange(stockInfo.getChange());
+			watchList.get(i).setDaysRange(stockInfo.getDaysRange());
 			watchList.get(i).setSharesOwned(sharesOwned);
 			watchList.get(i).setMarketValue(stockInfo.getLastTradePrice() * sharesOwned);
 			
@@ -44,7 +49,7 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 			}else if(lastTradePrice > previousPrice){ 
 				change = 1;
 			}
-			watchList.get(i).setChange(change);
+			watchList.get(i).setLastChangeArrow(change);
 		}
 		
 		return watchList;
@@ -127,10 +132,12 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 			json = (JSONObject) parser.parse(json.get("results").toString());
 			json = (JSONObject) parser.parse(json.get("quote").toString());
 			System.out.println(json.toString());
+			
 			model.setCompanyName(json.get("Name").toString());
 			model.setSymbol(json.get("Symbol").toString());
 			model.setChange(Double.parseDouble(json.get("Change").toString()));
 			model.setLastTradePrice( Double.parseDouble(json.get("LastTradePriceOnly").toString()));
+			model.setDaysRange(json.get("DaysRange").toString());
 		//	System.out.println(json.get("Symbol") + " "+ json.get("LastTradePriceOnly")) ;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -143,6 +150,7 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 //		model.setCompanyName("Acadia Pharma");
 //		model.setSymbol("ACAD");
 //		model.setLastTradePrice(33.40);
+//		
 //	}else if(symbol.equalsIgnoreCase("IDRA")){
 //		model.setCompanyName("Idera Pharam");
 //		model.setSymbol("IDRA");

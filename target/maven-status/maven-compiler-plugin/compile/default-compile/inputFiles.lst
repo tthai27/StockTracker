@@ -1,4 +1,12 @@
+D:\workspaceMars\StockTracker\src\com\stocktracker\mappers\UserMapper.java
+D:\workspaceMars\StockTracker\src\com\stocktracker\controller\UserController.java
+D:\workspaceMars\StockTracker\src\com\stocktracker\util\CommonUtil.java
+D:\workspaceMars\StockTracker\src\com\stocktracker\mappers\StockTrackerMapper.java
+D:\workspaceMars\StockTracker\src\com\stocktracker\model\UserModel.java
 D:\workspaceMars\StockTracker\src\com\stocktracker\service\impl\StockTrackerServiceImpl.java
 D:\workspaceMars\StockTracker\src\com\stocktracker\service\StockTrackerService.java
+D:\workspaceMars\StockTracker\src\com\stocktracker\service\impl\UserServiceImpl.java
+D:\workspaceMars\StockTracker\src\com\stocktracker\service\UserService.java
 D:\workspaceMars\StockTracker\src\com\stocktracker\controller\StockTrackerController.java
+D:\workspaceMars\StockTracker\src\test\StockTrackerTest.java
 D:\workspaceMars\StockTracker\src\com\stocktracker\model\StockTrackerModel.java

@@ -9,6 +9,8 @@ public class StockTrackerModel {
 	private int sharesOwned;
 	private double marketValue;
 	private double change;
+	private String daysRange;
+	private double lastChangeArrow;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -53,6 +55,19 @@ public class StockTrackerModel {
 	}
 	public void setChange(double change) {
 		this.change = change;
+	}
+
+	public double getLastChangeArrow() {
+		return lastChangeArrow;
+	}
+	public void setLastChangeArrow(double lastChangeArrow) {
+		this.lastChangeArrow = lastChangeArrow;
+	}
+	public String getDaysRange() {
+		return daysRange;
+	}
+	public void setDaysRange(String daysRange) {
+		this.daysRange = daysRange;
 	}
 
 }

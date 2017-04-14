@@ -20,20 +20,23 @@ function getWatchList(){
 				var shares = value.sharesOwned;
 				var marketValue = value.marketValue;
 				var change = value.change;
+				var lastChangeArrow = value.lastChangeArrow;
+				var daysRange = value.daysRange;
 				if(companyName != ''){
 						trHTML+=' <tr> ';
 						trHTML+='	<td>'+symbol+'</td>';
 						trHTML+='	<td>'+companyName+'</td>';
 						trHTML+='	<td>'+lastTradePrice+'</td>';
-						if(change == "1"){
+						if(lastChangeArrow == "1"){
 							trHTML+='<td><span style="color:green" class="glyphicon glyphicon-arrow-up"></span></td>';
-						}else if(change == "-1"){
+						}else if(lastChangeArrow == "-1"){
 							trHTML+='<td><span style="color:red"class="glyphicon glyphicon-arrow-down"></span></td>';
 						}else{
 							trHTML+='<td><span class="glyphicon glyphicon-minus"></span></td>';
 						}
 						trHTML+='	<td>'+shares+'</td>';
 						trHTML+='	<td>$'+marketValue+'</td>';
+						trHTML+='	<td>'+daysRange+'</td>';
 						trHTML+='	<td><span id="close" onclick="removeSymbol(\''+symbol+'\');this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;" style="color:red" class="glyphicon glyphicon-remove" ></span></td>';
 						trHTML+='  </tr>';
 				}

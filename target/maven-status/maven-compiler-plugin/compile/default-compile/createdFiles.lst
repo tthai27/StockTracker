@@ -1,4 +1,12 @@
-com\stocktracker\service\impl\StockTrackerServiceImpl.class
+test\StockTrackerTest.class
+com\stocktracker\controller\UserController.class
+com\stocktracker\service\impl\UserServiceImpl.class
 com\stocktracker\service\StockTrackerService.class
 com\stocktracker\controller\StockTrackerController.class
+com\stocktracker\mappers\StockTrackerMapper.class
+com\stocktracker\service\UserService.class
 com\stocktracker\model\StockTrackerModel.class
+com\stocktracker\mappers\UserMapper.class
+com\stocktracker\service\impl\StockTrackerServiceImpl.class
+com\stocktracker\util\CommonUtil.class
+com\stocktracker\model\UserModel.class

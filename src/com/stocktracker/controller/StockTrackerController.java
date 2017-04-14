@@ -4,7 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +23,6 @@ import com.stocktracker.service.StockTrackerService;
 
 @Controller
 public class StockTrackerController {
-//	https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22ACAD%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=
-
 	
 	@Autowired
 	StockTrackerService stockTrackerService;
@@ -43,6 +46,7 @@ public class StockTrackerController {
 		StockTrackerModel model = stockTrackerService.getSymbolInfoService(symbol);
 		
 		Gson gson = new Gson();
+	
 		String json = gson.toJson(model);
 		System.out.println(json);
 		return json;
@@ -83,4 +87,13 @@ public class StockTrackerController {
 		stockTrackerService.setWatchListInSessionService(request, watchList);
 		return "1";
 	}
+	
+	public static void main(String[] args){
+		String jsonInString = "{'companyName' : 'ACADIA','symbol':'ACAD','lastTradePrice':'33.33'}";
+		Gson gson = new Gson();
+		StockTrackerModel staff = gson.fromJson(jsonInString, StockTrackerModel.class);
+		staff.getCompanyName();
+	}
+	
+
 }

@@ -89,6 +89,7 @@
 			<th>Change</th>
 			<th># of Shares Owned</th>
 			<th>Market Value</th>
+			<th>Days Range</th>
 			<th>Remove</th>
 		  </tr>
 		</thead>

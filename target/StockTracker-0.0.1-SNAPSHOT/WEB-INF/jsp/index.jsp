@@ -48,14 +48,34 @@
 			<div class="col-xs-8 col-xs-offset-2">
 				<div class="input-group">
 					<input type="hidden" name="search_param" value="all" id="search_param">         
-					<input type="text" class="form-control" name="x" placeholder="Search Symbol...">
+					<input type="text" class="form-control" name="x" id="searchSymbolId" placeholder="Search Symbol...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						<button class="btn btn-default" type="button" onclick="getSymbolInfo()"><span class="glyphicon glyphicon-search"></span></button>
 					</span>
 				</div>
+				<span id="tickerErrorMsg" style="color:red;display:none">Please enter a ticker</span>
 			</div>
 		</div>
 	</div>
+	
+	<div class="container" id="resultDiv" style="display:none">     
+	  <table class="table">
+		<thead>
+		  <tr>
+			<th id="companyNameId"></th>
+			<th id="symbolId"></th>
+			<th id="priceId"></th>
+			<th><input type="hidden" name="shares" value="all" id="sharesIdhidden"></th>
+			<th><input type="text" class="form-control" name="x" id="sharesId" value="0" placeholder="Enter Shares"></th>
+			<th><span class="input-group-btn">
+				<button class="btn btn-default" type="button" onclick="addWatchList()"><span class="glyphicon glyphicon-plus"></span></button>
+				</span></th>
+		  </tr>
+		  <br>
+		</thead>
+	</table>
+	</div>
+
 	
 	<div class="container">
 	  <h2>Watch List</h2>                                                                                      
@@ -66,36 +86,39 @@
 			<th data-field="fruit" data-sortable="true">Symbol</th>
 			<th data-sortable="true">Company Name</th>
 			<th>Current Price</th>
+			<th>Change</th>
 			<th># of Shares Owned</th>
 			<th>Market Value</th>
+			<th>Days Range</th>
 			<th>Remove</th>
 		  </tr>
 		</thead>
-		<tbody>
-		  <tr>
-			<td>ACAD</td>
-			<td>Acadia Pharmaceuticals</td>
-			<td>$34.00</td>
-			<td><input type="number" min="0"></td>
-			<td></td>
-			<td><span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' class="glyphicon glyphicon-remove"></span></td>
-		  </tr>
-		  <tr>
-			<td>AMZN</td>
-			<td>Amazon.com</td>
-			<td>$910.00</td>
-			<td><input type="number" min="0"></td>
-			<td></td>
-			<td><span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' class="glyphicon glyphicon-remove"></span></td>
-		  </tr>
-		  <tr>
-			<td>AUPH</td>
-			<td>Aurinia Pharmaceuticals</td>
-			<td>$6.75</td>
-			<td><input type="number" min="0"></td>
-			<td></td>
-			<td><span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' class="glyphicon glyphicon-remove"></span></td>
-		  </tr>
+		<tbody id="watchListTableDiv">
+	
+<!-- 		  <tr> -->
+<!-- 			<td>ACAD</td> -->
+<!-- 			<td>Acadia Pharmaceuticals</td> -->
+<!-- 			<td>$34.00</td> -->
+<!-- 			<td>0</td> -->
+<!-- 			<td></td> -->
+<!-- 			<td><span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' class="glyphicon glyphicon-remove"></span></td> -->
+<!-- 		  </tr> -->
+<!-- 		  <tr> -->
+<!-- 			<td>AMZN</td> -->
+<!-- 			<td>Amazon.com</td> -->
+<!-- 			<td>$910.00</td> -->
+<!-- 			<td>0</td> -->
+<!-- 			<td></td> -->
+<!-- 			<td><span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' class="glyphicon glyphicon-remove"></span></td> -->
+<!-- 		  </tr> -->
+<!-- 		  <tr> -->
+<!-- 			<td>AUPH</td> -->
+<!-- 			<td>Aurinia Pharmaceuticals</td> -->
+<!-- 			<td>$6.75</td> -->
+<!-- 			<td></td> -->
+<!-- 			<td></td> -->
+<!-- 			<td><span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' class="glyphicon glyphicon-remove"></span></td> -->
+<!-- 		  </tr> -->
 		</tbody>
 	  </table>
 	  </div>
@@ -117,8 +140,11 @@
 <script type="text/javascript" src="${context}/resources/js/stockScript.js"></script>		
 <script type="text/javascript" >
 		$(document).ready(function(){
-			//getWatchList();
-			getSymbolInfo();
+			getWatchList();
+			setInterval(function(){ 
+				getWatchList(); 
+			}, 5000);
+			
 		});
 
 </script>

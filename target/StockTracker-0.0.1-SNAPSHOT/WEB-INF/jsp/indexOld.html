@@ -54,14 +54,57 @@
 		</div>
 	</div>
 	
+	<div class="container">     
+	  <table class="table">
+		<thead>
+		  <tr>
+			<th id="companyNameID">Acadia Pharmaceuticals</th>
+			<th id="symbolID">ACAD</th>
+			<th id="priceID">$30.00</th>
+			<th><input type="hidden" name="shares" value="all" id="sharesId"></th>
+			<th><input type="text" class="form-control" name="x" placeholder="Enter Shares"></th>
+			<th><span class="input-group-btn">
+				<button class="btn btn-default" type="button" onclick="addWatchList()"><span class="glyphicon glyphicon-plus"></span></button>
+				</span></th>
+		  </tr>
+		  <br>
+		</thead>
+	</table>
+	</div>
+
+	
+	<!-- Omit 
+	
+	<div class="container">
+		<div class="row" id="resultDiv">    
+			<div class="col-xs-8 col-xs-offset-2" id="addstock">
+				<div class="input-group">
+					<span id="companyNameId">1</span>
+					<span id="symbolId">2</span>
+					<span id="priceId">3</span>
+					<span><input type="hidden" name="shares" value="all" id="sharesId"></span>         
+					<span><input type="text" class="form-control" name="x" placeholder="Enter Shares"></span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" onclick="addWatchList()"><span class="glyphicon glyphicon-plus"></span></button>
+					</span>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	//-->
+	
+	
+	
 	<div class="container">
 	  <h2>Watch List</h2>                                                                                      
 	  <div class="table-responsive">          
 	  <table class="table">
 		<thead>
 		  <tr>
-			<th data-field="fruit" data-sortable="true">Symbol</th>
-			<th data-sortable="true">Company Name</th>
+			<th>Symbol</th>
+			<th>Company Name</th>
 			<th>Current Price</th>
 			<th># of Shares Owned</th>
 			<th>Market Value</th>

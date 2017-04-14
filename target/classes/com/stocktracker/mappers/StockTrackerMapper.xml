@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- Fruit Mapper with Nested Results for Collection -->
+<mapper namespace="com.stocktracker.StockTrackerMapper" >
+
+<!-- 	<resultMap id="FruitResultMap" type="Fruit" > -->
+<!-- 		<result column="FRUIT_ID" property ="fruit_id"/>  -->
+<!-- 		<result column="APPLE" property ="apple"/>  -->
+<!-- 		<result column="BANANA" property ="banana"/> -->
+<!-- 		<result column="ORANGE" property ="orange"/>        -->
+<!-- 		<result column="PEAR" property ="pear"/>    -->
+<!-- 		<result column="CREATE_DATE" property ="create_date"/>        -->
+<!-- 		<result column="UPDATE_DATE" property ="update_date"/> -->
+<!-- 		<result column="FRUIT_DATE" property ="fruit_date"/> -->
+<!-- 		<result column="IS_FRUIT" property ="is_fruit"/> -->
+<!-- 	</resultMap> -->
+</mapper>
