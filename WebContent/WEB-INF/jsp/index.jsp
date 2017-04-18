@@ -141,9 +141,9 @@
 <script type="text/javascript" >
 		$(document).ready(function(){
 			getWatchList();
-			setInterval(function(){ 
-				getWatchList(); 
-			}, 5000);
+// 			setInterval(function(){ 
+// 				getWatchList(); 
+// 			}, 5000);
 			
 		});
 

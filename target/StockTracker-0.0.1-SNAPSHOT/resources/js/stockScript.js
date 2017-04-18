@@ -36,7 +36,7 @@ function getWatchList(){
 						}
 						trHTML+='	<td>'+shares+'</td>';
 						trHTML+='	<td>$'+marketValue+'</td>';
-						trHTML+='	<td>$'+daysRange+'</td>';
+						trHTML+='	<td>'+daysRange+'</td>';
 						trHTML+='	<td><span id="close" onclick="removeSymbol(\''+symbol+'\');this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;" style="color:red" class="glyphicon glyphicon-remove" ></span></td>';
 						trHTML+='  </tr>';
 				}

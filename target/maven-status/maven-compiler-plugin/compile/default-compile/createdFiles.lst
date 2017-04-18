@@ -1,4 +1,3 @@
-test\StockTrackerTest.class
 com\stocktracker\controller\UserController.class
 com\stocktracker\service\impl\UserServiceImpl.class
 com\stocktracker\service\StockTrackerService.class
