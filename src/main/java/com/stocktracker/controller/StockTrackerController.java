@@ -29,7 +29,7 @@ public class StockTrackerController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String defaultPage() {
-		System.out.println("defaultPage");
+		System.out.println("defaultPage");//
 		return "index";
 	}
 	
