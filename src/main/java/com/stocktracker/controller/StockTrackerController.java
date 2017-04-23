@@ -26,7 +26,7 @@ public class StockTrackerController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String defaultPage() {
-		logger.info("defaultPage");//
+		logger.info("defaultPage");//aasd
 		
 		return "index";
 	}
