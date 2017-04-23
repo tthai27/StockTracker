@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	 
+	<context:property-placeholder location="/WEB-INF/mybatis/jdbc.properties,/WEB-INF/mybatis/mybatis.properties" />
+	 
+	 <tx:annotation-driven transaction-manager="transactionManager" />
+	
+		<!-- Declare a datasource that has pooling capabilities -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" 
+	p:driverClass="${jdbc.driverClassName}"
+	p:jdbcUrl="${jdbc.url}" 
+	p:user="${jdbc.username}"
+	 p:password="${jdbc.password}"
+	p:acquireIncrement="10" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
+	p:maxStatements="50" p:minPoolSize="10" />
+	 
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+	  <property name="configLocation" value="WEB-INF/mybatis/mybatis-config.xml" />
+<!-- 	  <property name="typeAliasesPackage" value="com.stocktracker.model"/> -->
+<!-- 	  <property name="mapperLocations" value="classpath*:com/stocktracker/mappers/*.xml" /> -->
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+ 	 <property name="basePackage" value="{MapperInterfacePackage}" />
+	</bean>
+	
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 	  <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!-- 	  <property name="url" value="" /> -->
+<!-- 	  <property name="username" value="" /> -->
+<!-- 	  <property name="password" value="" /> -->
+<!-- 	</bean> -->
+	
+
+	
+<!-- 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> -->
+<!--   		<constructor-arg index="0" ref="sqlSessionFactory" /> -->
+<!-- 	</bean> -->
+
+
+	
+ </beans>

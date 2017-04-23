@@ -41,6 +41,7 @@
     <div class="container">
       <div class="header clearfix">
         <h3 class="text-muted">My Stock Portfolio</h3>
+        <span><a href="<c:url value="j_spring_security_logout" />">Logout</a></span>
       </div>
 	  
 	<div class="container">

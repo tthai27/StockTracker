@@ -5,6 +5,7 @@ com\stocktracker\controller\StockTrackerController.class
 com\stocktracker\mappers\StockTrackerMapper.class
 com\stocktracker\service\UserService.class
 com\stocktracker\model\StockTrackerModel.class
+com\stocktracker\interceptors\SessionInterceptor.class
 com\stocktracker\mappers\UserMapper.class
 com\stocktracker\service\impl\StockTrackerServiceImpl.class
 com\stocktracker\util\CommonUtil.class

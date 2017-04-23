@@ -4,12 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,12 +20,14 @@ import com.stocktracker.service.StockTrackerService;
 @Controller
 public class StockTrackerController {
 	
+	Logger logger =  Logger.getLogger(StockTrackerController.class);   
 	@Autowired
 	StockTrackerService stockTrackerService;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String defaultPage() {
-		System.out.println("defaultPage");//
+		logger.info("defaultPage");//
+		
 		return "index";
 	}
 	

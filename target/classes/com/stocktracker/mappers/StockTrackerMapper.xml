@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <!-- Fruit Mapper with Nested Results for Collection -->
-<mapper namespace="com.stocktracker.StockTrackerMapper" >
+<mapper namespace="com.stocktracker.mappers.StockTrackerMapper" >
 
 <!-- 	<resultMap id="FruitResultMap" type="Fruit" > -->
 <!-- 		<result column="FRUIT_ID" property ="fruit_id"/>  -->

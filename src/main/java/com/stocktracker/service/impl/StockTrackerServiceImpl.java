@@ -22,8 +22,8 @@ import com.stocktracker.service.StockTrackerService;
 @Service
 public class StockTrackerServiceImpl implements StockTrackerService{
 	
-//	@Autowired
-//	StockTrackerMapper stockTrackerMapper;
+	@Autowired
+	StockTrackerMapper stockTrackerMapper;
 
 	@Override
 	public List<StockTrackerModel> getWatchListService(HttpServletRequest request, List<StockTrackerModel> watchList) {

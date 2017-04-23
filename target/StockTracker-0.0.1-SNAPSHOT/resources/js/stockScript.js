@@ -1,7 +1,7 @@
 function getWatchList(){
 	
 	$.ajax({
-		url: "StockTracker/getWatchList.do",
+		url: "getWatchList.do",
 		type: "GET",
 		dataType: "json",
 		success: function(response){
@@ -58,7 +58,7 @@ function getSymbolInfo(){
 		return;
 	}
 	$.ajax({
-		url: "StockTracker/getSymbolInfo.do",
+		url: "getSymbolInfo.do",
 		type: "GET",
 		dataType: 'json',
 		data: {
@@ -81,7 +81,7 @@ function getSymbolInfo(){
 function removeSymbol(symbol){
 	
 	$.ajax({
-		url: "StockTracker/removeWatchList.do",
+		url: "removeWatchList.do",
 		type: "POST",
 		dataType: 'text',
 		data: {
@@ -109,7 +109,7 @@ function addWatchList(){
 		shares = 0;
 	}
 	$.ajax({
-		url: "StockTracker/addWatchList.do",
+		url: "addWatchList.do",
 		type: "POST",
 		dataType: 'text',
 		data: {

@@ -2,17 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <!-- Fruit Mapper with Nested Results for Collection -->
-<mapper namespace="com.stocktracker.UserMapper" >
+<mapper namespace="com.stocktracker.mappers.UserMapper" >
 
-<!-- 	<resultMap id="FruitResultMap" type="Fruit" > -->
-<!-- 		<result column="FRUIT_ID" property ="fruit_id"/>  -->
-<!-- 		<result column="APPLE" property ="apple"/>  -->
-<!-- 		<result column="BANANA" property ="banana"/> -->
-<!-- 		<result column="ORANGE" property ="orange"/>        -->
-<!-- 		<result column="PEAR" property ="pear"/>    -->
-<!-- 		<result column="CREATE_DATE" property ="create_date"/>        -->
-<!-- 		<result column="UPDATE_DATE" property ="update_date"/> -->
-<!-- 		<result column="FRUIT_DATE" property ="fruit_date"/> -->
-<!-- 		<result column="IS_FRUIT" property ="is_fruit"/> -->
-<!-- 	</resultMap> -->
+<!--   <select id="getUserById" parameterType="int" resultType="com.sivalabs.mybatisdemo.domain.User"> -->
+<!--      SELECT  -->
+<!--       user_id as userId,  -->
+<!--       email_id as emailId ,  -->
+<!--       password,  -->
+<!--       first_name as firstName,  -->
+<!--       last_name as lastName -->
+<!--      FROM USER  -->
+<!--      WHERE USER_ID = #{userId} -->
+<!--   </select> -->
+  <!-- Instead of referencing Fully Qualified Class Names we can register Aliases in mybatis-config.xml and use Alias names. -->
+   <resultMap type="User" id="UserResult">
+    <result property="emailAddress" column="EMAIL_ADDRESS"/>
+    <result property="password" column="PASSWORD"/>
+    <result property="firstName" column="FIRST_NAME"/>
+    <result property="lastName" column="LAST_NAME"/>   
+   </resultMap>
+
+  <select id="getAllUsers" resultMap="UserResult">
+   SELECT * FROM WASHER_RECALL
+  </select>
+
 </mapper>

@@ -1,9 +1,12 @@
 package com.stocktracker.mappers;
 
-import com.stocktracker.model.UserModel;
+import java.util.List;
+
+import com.stocktracker.model.User;
+
 
 public interface UserMapper {
 	
-	public UserModel loginAuth(String username, String password);
-
+	public User loginAuth(String username, String password);
+	public List<User> getAllUsers();
 }
