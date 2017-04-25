@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean loginAuthService(String username, String password, String role) {
 		// TODO Auto-generated method stub
-//		userMapper.loginAuth(username, password, role);
+		userMapper.loginAuth(username, password, role);
 		return false;
 	}
 

@@ -11,12 +11,12 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
         
 	<mvc:annotation-driven />
-	
-	<context:component-scan base-package="com.stocktracker" >
-       <context:exclude-filter
-            expression=".*XXXX.*"
-            type="regex" />
-    </context:component-scan>
+   <context:annotation-config/>
+	<context:component-scan base-package="com.stocktracker" />
+<!--        <context:exclude-filter -->
+<!--             expression=".*XXXX.*" -->
+<!--             type="regex" /> -->
+<!--     </context:component-scan> -->
 
 	<mvc:resources mapping="/resources/**" location="/resources/" /> 
 	
@@ -32,6 +32,6 @@
       <bean class="com.stocktracker.interceptors.SessionInterceptor" />
 	</mvc:interceptors> 
 	
-<!-- 	<import resource="jdbc-context.xml" /> -->
+	<import resource="jdbc-context.xml" />
 
 </beans>

@@ -113,7 +113,7 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 		//call api
 		System.out.println("getSymbolInfoService "+ symbol);
 		StockTrackerModel model = new StockTrackerModel();
-		boolean home = true;
+		boolean home = false;
 		if(home){
 			
 		

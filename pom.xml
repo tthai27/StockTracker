@@ -223,6 +223,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   	<artifactId>ojdbc6</artifactId>
   	<version>11.2.0</version>
   </dependency>
+  <dependency>
+  	<groupId>javax.servlet</groupId>
+  	<artifactId>jstl</artifactId>
+  	<version>1.2</version>
+  </dependency>
+  <dependency>
+  	<groupId>javax.servlet.jsp</groupId>
+  	<artifactId>jsp-api</artifactId>
+  	<version>2.1</version>
+  </dependency>
    </dependencies>
    
    
