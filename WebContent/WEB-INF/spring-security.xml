@@ -14,9 +14,8 @@
 			authentication-failure-url="/login" username-parameter="username"
 			password-parameter="password" />
 			
-			<sec:access-denied-handler error-page="/403.jsp" />
-	<intercept-url pattern="/login" access="permitAll" />
-	
+		 <sec:access-denied-handler error-page="/errors/403.jsp" />
+		 <intercept-url pattern="/login" access="permitAll" />
 		 <sec:intercept-url pattern="/**" access="hasAuthority('AUTH_USER')" />
 		<session-management invalid-session-url="/login" />
         <logout delete-cookies="JSESSIONID" invalidate-session="true" logout-success-url="/login.do" />

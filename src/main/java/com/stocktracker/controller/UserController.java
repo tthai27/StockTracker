@@ -19,7 +19,7 @@ public class UserController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login() {
 		logger.info("login in");
-		userService.getAllUsers();
+		logger.info("size="+userService.getAllUsers().size());
 		return "login";
 	}
 	
