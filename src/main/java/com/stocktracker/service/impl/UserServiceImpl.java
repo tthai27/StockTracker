@@ -1,5 +1,6 @@
 package com.stocktracker.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,8 +15,8 @@ import com.stocktracker.util.MyBatisUtil;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	UserMapper userMapper;
+//	@Autowired
+//	UserMapper userMapper;
 
 	@Override
 	public int getUserInfo(User user) {
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean loginAuthService(String username, String password, String role) {
 		// TODO Auto-generated method stub
-		userMapper.loginAuth(username, password, role);
+		//userMapper.loginAuth(username, password, role);
 		return false;
 	}
 
@@ -40,7 +41,14 @@ public class UserServiceImpl implements UserService {
 //		  }finally{
 //		   sqlSession.close();
 //		  }
-		return userMapper.getAllUsers();
+		
+		return new ArrayList<User>();//userMapper.getAllUsers();
+	}
+
+	@Override
+	public int getUsersCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

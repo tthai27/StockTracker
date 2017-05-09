@@ -32,6 +32,6 @@
       <bean class="com.stocktracker.interceptors.SessionInterceptor" />
 	</mvc:interceptors> 
 	
-	<import resource="jdbc-context.xml" />
+<!-- 	<import resource="jdbc-context.xml" /> -->
 
 </beans>

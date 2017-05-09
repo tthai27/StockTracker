@@ -8,7 +8,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <packaging>war</packaging>
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <aws.java.sdk.version>1.11.106</aws.java.sdk.version>
    </properties>
+   
+    
   <build>
     <plugins>
       <plugin>
@@ -233,8 +236,35 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   	<artifactId>jsp-api</artifactId>
   	<version>2.1</version>
   </dependency>
+  
+
+  
+  		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>${aws.java.sdk.version}</version>
+		</dependency>
+		
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-lambda-java-core</artifactId>
+    <version>1.0.0</version>
+</dependency>
+		   
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>2.4.3</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.ws</groupId>
+    <artifactId>spring-ws-test</artifactId>
+    <version>2.3.0.RELEASE</version>
+</dependency>
+
    </dependencies>
    
-   
+
 
 </project>

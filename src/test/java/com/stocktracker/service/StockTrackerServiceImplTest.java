@@ -1,6 +1,6 @@
-package com.stocktracker.service;
+//package com.stocktracker.service;
 //
-//import static org.junit.Assert.*;
+//import static org.junit.Assert.assertEquals;
 //
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
@@ -9,8 +9,6 @@ package com.stocktracker.service;
 //import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //
 //import com.stocktracker.model.StockTrackerModel;
-//import com.stocktracker.service.StockTrackerService;
-//import com.stocktracker.service.impl.StockTrackerServiceImpl;
 //
 //
 //

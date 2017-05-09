@@ -1,6 +1,10 @@
-D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\Test.java
+D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\JUnitTestSuite.java
+D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\MathApplication.java
 D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\config\WebAppConfigurationAware.java
-D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\MockCreationTest.java
+D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\CalculatorService.java
+D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\TestJunit1.java
+D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\ApplicationTester.java
+D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\test\TestRunner.java
 D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\service\StockTrackerServiceImplTest.java
 D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\service\StockTrackerTest.java
 D:\workspaceMars\StockTracker\src\test\java\com\stocktracker\service\UserServiceTest.java

@@ -22,8 +22,8 @@ import com.stocktracker.service.StockTrackerService;
 @Service
 public class StockTrackerServiceImpl implements StockTrackerService{
 	
-	@Autowired
-	StockTrackerMapper stockTrackerMapper;
+//	@Autowired
+//	StockTrackerMapper stockTrackerMapper;
 
 	@Override
 	public List<StockTrackerModel> getWatchListService(HttpServletRequest request, List<StockTrackerModel> watchList) {
@@ -113,7 +113,7 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 		//call api
 		System.out.println("getSymbolInfoService "+ symbol);
 		StockTrackerModel model = new StockTrackerModel();
-		boolean home = false;
+		boolean home = true;
 		if(home){
 			
 		

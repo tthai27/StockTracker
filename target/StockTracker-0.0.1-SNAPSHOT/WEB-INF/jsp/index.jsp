@@ -33,16 +33,35 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
-
+ <script src="https://fb.me/react-15.2.1.js"></script>
+      <script src="https://fb.me/react-dom-15.2.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.32/browser.js"></script>
+      
   </head>
 
   <body>
+  
+   <script type="text/babel">
+ var TitleMessage = React.createClass({
+ 	render(){
+ 		return(
+ 			<p>react</p>
+ 		)
+ 	}
+ })
 
+ 	ReactDOM.render(
+   		 <TitleMessage/>
+  		,document.getElementById('react-container'))
+ </script>
+<div id="react-container"></div>
     <div class="container">
-      <div class="header clearfix">
-        <h3 class="text-muted">My Stock Portfolio</h3>
-        <span><a href="<c:url value="j_spring_security_logout" />">Logout</a></span>
-      </div>
+     	<div class="header clearfix">
+ 			
+ 			<h3 class="text-muted">My Stock Portfolio</h3>
+       	 	<span><a href="<c:url value="j_spring_security_logout" />">Logout</a></span>
+		</div>
+    
 	  
 	<div class="container">
 		<div class="row">    

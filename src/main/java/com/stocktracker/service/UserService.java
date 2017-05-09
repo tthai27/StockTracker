@@ -9,4 +9,7 @@ public interface UserService {
 	
 	public List<User> getAllUsers();
 	public boolean loginAuthService(String username, String password, String role);
+	
+	public int getUsersCount();
+
 }

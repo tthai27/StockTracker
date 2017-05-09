@@ -1,5 +1,4 @@
-package com.stocktracker.service;
-//package com.stocktracker.test;
+//package com.stocktracker.service;
 //
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.ComponentScan;
