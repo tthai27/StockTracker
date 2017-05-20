@@ -11,7 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.stocktracker.service.UserService;
@@ -20,6 +19,7 @@ import com.stocktracker.service.UserService;
 public class UserAuthenticationProvider implements AuthenticationProvider{
 	
 	Logger logger =  Logger.getLogger(UserAuthenticationProvider.class);  
+	
 	@Autowired
 	private UserService userService;
 	
@@ -51,11 +51,11 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 	private boolean authorizedUser(String userName, String password, String role)
 	{
 			System.out.println("username is :" + userName+" and password is "+password );
-//			boolean result = userService.loginAuthService(userName, password, role);
-//			return result;
-			if("tony".equals(userName) && "1234".equals(password))
-					return true;
-			return false;
+			boolean result = userService.loginAuthService(userName, password, role);
+			return result;
+//			if("tony".equals(userName) && "123".equals(password))
+//					return true;
+//			return false;
 		
 	}
 

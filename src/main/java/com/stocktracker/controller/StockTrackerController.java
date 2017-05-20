@@ -1,11 +1,13 @@
 package com.stocktracker.controller;
 
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+import com.amazonaws.services.sqs.model.AmazonSQSException;
+import com.amazonaws.services.sqs.model.CreateQueueRequest;
+import com.amazonaws.services.sqs.model.ListQueuesResult;
+import com.amazonaws.services.sqs.model.Message;
+import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
+import com.amazonaws.services.sqs.model.SendMessageRequest;
 import com.google.gson.Gson;
 import com.stocktracker.model.StockTrackerModel;
 import com.stocktracker.service.StockTrackerService;
@@ -24,6 +34,7 @@ public class StockTrackerController {
 	@Autowired
 	StockTrackerService stockTrackerService;
 	
+
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String defaultPage() {
 		logger.info("defaultPage");//aasd
@@ -86,12 +97,7 @@ public class StockTrackerController {
 		return "1";
 	}
 	
-	public static void main(String[] args){
-		String jsonInString = "{'companyName' : 'ACADIA','symbol':'ACAD','lastTradePrice':'33.33'}";
-		Gson gson = new Gson();
-		StockTrackerModel staff = gson.fromJson(jsonInString, StockTrackerModel.class);
-		staff.getCompanyName();
-	}
+	
 	
 
 }

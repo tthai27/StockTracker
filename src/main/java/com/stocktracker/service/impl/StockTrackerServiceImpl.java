@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,13 @@ import org.springframework.stereotype.Service;
 import com.stocktracker.mappers.StockTrackerMapper;
 import com.stocktracker.model.StockTrackerModel;
 import com.stocktracker.service.StockTrackerService;
+import com.stocktracker.util.SQSUtil;
 
 @Service
 public class StockTrackerServiceImpl implements StockTrackerService{
-	
-//	@Autowired
-//	StockTrackerMapper stockTrackerMapper;
+	Logger logger =  Logger.getLogger(StockTrackerServiceImpl.class);   
+	@Autowired
+	StockTrackerMapper stockTrackerMapper;
 
 	@Override
 	public List<StockTrackerModel> getWatchListService(HttpServletRequest request, List<StockTrackerModel> watchList) {
@@ -69,6 +71,7 @@ public class StockTrackerServiceImpl implements StockTrackerService{
 		model.setMarketValue(model.getLastTradePrice() * shares);
 		watchList.add(model);
 		
+		new SQSUtil().producerSQS(model);
 		
 		return watchList;
 	}

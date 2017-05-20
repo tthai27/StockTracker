@@ -9,6 +9,7 @@ public class StockTrackerModel {
 	private int sharesOwned;
 	private double marketValue;
 	private double change;
+
 	private String daysRange;
 	private double lastChangeArrow;
 	
@@ -21,12 +22,7 @@ public class StockTrackerModel {
 	public String getSymbol() {
 		return symbol;
 	}
-	@Override
-	public String toString() {
-		return "StockTrackerModel [ companyName=" + companyName + ", symbol=" + symbol
-				+ ", lastTradePrice=" + lastTradePrice + ", sharesOwned=" + sharesOwned + ", marketValue=" + marketValue
-				+ "]";
-	}
+
 	public void setSymbol(String symbol) {
 		this.symbol = symbol;
 	}
@@ -69,5 +65,11 @@ public class StockTrackerModel {
 	public void setDaysRange(String daysRange) {
 		this.daysRange = daysRange;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "StockTrackerModel [companyName=" + companyName + ", symbol=" + symbol + ", lastTradePrice="
+				+ lastTradePrice + ", sharesOwned=" + sharesOwned + ", marketValue=" + marketValue + ", change="
+				+ change + ", daysRange=" + daysRange + ", lastChangeArrow=" + lastChangeArrow + "]";
+	}
 }

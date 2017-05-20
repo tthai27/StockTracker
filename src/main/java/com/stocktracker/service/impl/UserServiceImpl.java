@@ -3,20 +3,19 @@ package com.stocktracker.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stocktracker.mappers.UserMapper;
 import com.stocktracker.model.User;
 import com.stocktracker.service.UserService;
-import com.stocktracker.util.MyBatisUtil;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-//	@Autowired
-//	UserMapper userMapper;
+	Logger logger =  Logger.getLogger(UserServiceImpl.class);  
+	@Autowired
+	UserMapper userMapper;
 
 	@Override
 	public int getUserInfo(User user) {
@@ -26,10 +25,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean loginAuthService(String username, String password, String role) {
+	public boolean loginAuthService(String emailAddress, String password, String role) {
 		// TODO Auto-generated method stub
-		//userMapper.loginAuth(username, password, role);
-		return false;
+		//int result = userMapper.loginAuth(emailAddress, password, role);
+		//System.out.println("loginAuth =" + result);
+		System.out.println("count="+getAllUsers().size());
+		int result = 1;
+		if(result == 0) return false;
+		
+		return true;
 	}
 
 	@Override
@@ -42,7 +46,8 @@ public class UserServiceImpl implements UserService {
 //		   sqlSession.close();
 //		  }
 		
-		return new ArrayList<User>();//userMapper.getAllUsers();
+		//return new ArrayList<User>();
+		return userMapper.getAllUsers();
 	}
 
 	@Override

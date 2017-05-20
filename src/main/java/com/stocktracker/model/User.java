@@ -1,6 +1,8 @@
 package com.stocktracker.model;
 
 public class User {
+	private int userseqno;
+
 	private String firstName;
 	private String lastName;
 	private String emailAddress;
@@ -31,5 +33,10 @@ public class User {
 		this.password = password;
 	}
 
-	
+	public int getUserseqno() {
+		return userseqno;
+	}
+	public void setUserseqno(int userseqno) {
+		this.userseqno = userseqno;
+	}
 }

@@ -13,69 +13,39 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx 
         http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
-	 
-<!-- 	<context:property-placeholder location="/WEB-INF/mybatis/jdbc.properties,/WEB-INF/mybatis/mybatis.properties" /> -->
-	 
-	 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 
-		<property name="location" value="WEB-INF/mybatis/database.properties"/>
-	</bean>
-	 
-	 <tx:annotation-driven transaction-manager="transactionManager" />
-	
+    <!-- Enable annotation style of managing transactions -->
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
- 		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-		<!-- Declare a datasource that has pooling capabilities -->
-<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"  -->
-<!-- 	p:driverClass="${jdbc.driverClassName}" -->
-<!-- 	p:jdbcUrl="${jdbc.url}"  -->
-<!-- 	p:user="${jdbc.username}" -->
-<!-- 	 p:password="${jdbc.password}" -->
-<!-- 	p:acquireIncrement="10" p:idleConnectionTestPeriod="60" p:maxPoolSize="100" -->
-<!-- 	p:maxStatements="50" p:minPoolSize="10" /> -->
-	 
-<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<property name="driverClassName" value="oracle.jdbc.pool.OracleDataSource" />
-			<property name="url" value="jdbc:oracle:thin:@105.1.11.162:1525:NADEV2" />
-			<property name="username" value="naec" />
-			<property name="password" value="s1k2f3qka1" />
-<!-- 						<property name="driverClassName" value="${jdbc.driverClassName}" /> -->
-<!-- 			<property name="url" value="${jdbc.url}" /> -->
-<!-- 			<property name="username" value="${jdbc.username}" /> -->
-<!-- 			<property name="password" value="${jdbc.password}" /> -->
-</bean>
-	
-	<!-- 	{MapperInterfacePackage} -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- 	 <property name="basePackage" value="com.stocktracker.mappers" />
- 	 <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-	
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <property name="dataSource" ref="dataSource" />
-	  <property name="configLocation" value="WEB-INF/mybatis/mybatis-config.xml" />
-	  <property name="mapperLocations" value="classpath*:com/stocktracker/mappers/*.xml" />
-	  <property name="typeAliasesPackage" value="com.stocktracker.model"/>
 	</bean>
 	
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.stocktracker.mappers" />
+    </bean>
+  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+	  <property name="typeAliasesPackage" value="com.stocktracker.model"/>
+	  <property name="mapperLocations" value="classpath*:com/stocktracker/mappers/*.xml" />
+	</bean>
 
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	 
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!-- 			<property name="driverClassName" value="oracle.jdbc.pool.OracleDataSource" />  -->
+<!-- 			<property name="url" value="jdbc:oracle:thin:@105.1.11.162:1525:NADEV2" />  -->
+<!-- 			<property name="username" value="naec" />  -->
+<!-- 			<property name="password" value="s1k2f3qka1" />  -->
 
-	
-<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
-<!-- 	  <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
-<!-- 	  <property name="url" value="" /> -->
-<!-- 	  <property name="username" value="" /> -->
-<!-- 	  <property name="password" value="" /> -->
-<!-- 	</bean> -->
-	
+			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+			<property name="url" value="jdbc:mysql://st-db-dev.ctd6usy4ntoe.us-east-1.rds.amazonaws.com:3306/st_db_dev" />
+			<property name="username" value="awsuser_st" />
+			<property name="password" value="qweqwe!3" />
+	 </bean>
 
-	
-<!-- 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> -->
-<!--   		<constructor-arg index="0" ref="sqlSessionFactory" /> -->
-<!-- 	</bean> -->
-
-
-	
  </beans>

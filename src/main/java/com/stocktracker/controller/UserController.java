@@ -23,7 +23,7 @@ public class UserController {
 		return "login";
 	}
 	
-
+	
 	
 //
 //	   @RequestMapping(value = "/accessdenied", method = RequestMethod.GET)

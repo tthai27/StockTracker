@@ -7,6 +7,6 @@ import com.stocktracker.model.User;
 
 public interface UserMapper {
 	
-	public User loginAuth(String username, String password, String role);
+	public int loginAuth(String emailAddress, String password, String role);
 	public List<User> getAllUsers();
 }

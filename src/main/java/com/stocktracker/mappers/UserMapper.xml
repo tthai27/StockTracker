@@ -14,11 +14,11 @@
    </resultMap>
 
   <select id="getAllUsers" resultMap="UserResult">
-   SELECT * FROM WASHER_RECALL
+   SELECT * FROM STOCKTRACKER_USER
   </select>
   
    <select id="loginAuth" parameterType="String" resultType="int">
- 	  SELECT count(*) FROM ST_USER_ACCOUNT 
+ 	  SELECT count(*) FROM STOCKTRACKER_USER 
  	  WHERE EMAIL_ADDRESS = #{emailAddress} 
  	  and PASSWORD = #{PASSWORD}
   </select>

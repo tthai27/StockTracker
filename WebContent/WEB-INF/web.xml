@@ -2,21 +2,23 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>StockTracker</display-name>
   
-    <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  
-     <!-- Loads Spring Security config file -->
+       <!-- Loads Spring Security config file -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/dispatcher-servlet.xml,/WEB-INF/spring-security.xml</param-value>
 	</context-param>
-	
+<!-- 	, /WEB-INF/jdbc-context.xml -->
 	<context-param>
     <param-name>defaultHtmlEscape</param-name>
     <param-value>true</param-value>
   </context-param>
   
+  
+    <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+
 
   
     <servlet>
